@@ -2,8 +2,8 @@
 
 @section('content')
 
-{{--
-<x-breadcrumb :product="$product" /> --}}
+
+<x-breadcrumb :product="$product" />
 
 <div class="grid sm:grid-cols-2 gap-2 pt-12 sm:pt-20 mx-auto w-4/5">
     <div class="mx-auto">
