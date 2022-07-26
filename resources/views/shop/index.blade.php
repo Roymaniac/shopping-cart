@@ -10,30 +10,34 @@
     <hr class="border-1 border-gray-300">
 </div>
 
-<div class="grid sm:grid-cols-4 gap-8 pt-20 mx-auto w-4/5">
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 pt-20 mx-auto w-4/5">
     @foreach ($products as $product)
 
-    <div class="mx-auto">
-        <img src="{{ asset($product->image_url) }}" alt="{{ $product->name }}" style="height:200px !important;">
-
-        <h2 class="text-xl text-gray-600 font-bold pb-8">
-            {{ $product->name }}
-        </h2>
-
-        <p class="font-thin text-xs text-black pb-8">
-            {{ $product->detail }}
-        </p>
-
-        <p class="font-bold text-l text-black pb-8">
-            Price: <span class="text-red-500">$ {{ $product->price }}</span>
-        </p>
-
-        <a href="/shop/{{ $product->id }}"
-            class="px-6 py-2 text-l uppercase text-white font-bold bg-blue-600 rounded-full w-full">
-            Read more...
-        </a>
-    </div>
-
+    <a href="/shop/{{ $product->id }}">
+        <div class="w-full px-4 lg:px-0">
+            <div class="p-3 bg-white rounded shadow-md">
+                <div class="">
+                    <div class="relative w-full mb-3 h-62 lg:mb-0">
+                        <img src="{{ asset($product->image_url) }}" alt="{{ $product->name }}"
+                            alt="{{ $product->name }}" class="object-fill w-full h-full rounded">
+                    </div>
+                    <div class="flex-auto p-2 justify-evenly">
+                        <div class="flex flex-wrap ">
+                            <div class="flex items-center justify-between w-full min-w-0 ">
+                                <h2 class="mr-auto text-lg cursor-pointer hover:text-gray-900 ">
+                                    {{ $product->name }}
+                                </h2>
+                            </div>
+                            <p class="font-thin text-md text-black pb-4">
+                                {{ $product->detail }}
+                            </p>
+                        </div>
+                        <div class="mt-1 text-xl font-semibold mb-4">${{ $product->price }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
     @endforeach
 </div>
 

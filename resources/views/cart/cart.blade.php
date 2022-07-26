@@ -11,7 +11,7 @@
 
 <div class="flex flex-col mx-auto w-4/5">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-1">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
@@ -55,7 +55,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0 h-10 w-10">
-                                        <img class="h-10 w-10 rounded-full" src="{{ asset($value['image_url']) }}"
+                                        <img class="mt-2 h-6 w-10 rounded-sm" src="{{ asset($value['image_url']) }}"
                                             alt="{{  $value['name'] }}">
                                     </div>
 
@@ -72,12 +72,12 @@
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ $value['detail'] }}</div>
+                                <div class="text-xs text-gray-900">{{ $value['detail'] }}</div>
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <span
-                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-300 text-green-800">
                                     $ {{ $value['price'] }}
                                 </span>
                             </td>
@@ -87,8 +87,8 @@
                                     @csrf
                                     <select name="quantity" id="quantity" value="{{ $value['quantity'] }}"
                                         onchange="this.form.submit()">
-                                        @for ($i = 1; $i <= 10; $i++) 
-                                        <option value="{{ $i }}" {{ $value['quantity'] == $i ? 'selected' : '' }}>
+                                        @for ($i = 1; $i <= 5; $i++) <option value="{{ $i }}" {{ $value['quantity']==$i
+                                            ? 'selected' : '' }}>
                                             {{ $i }}
                                             </option>
                                             @endfor
@@ -97,7 +97,8 @@
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900"> $ {{ $value['quantity'] * $value['price'] }} </div>
+                                <div class="text-sm text-gray-900"> $ {{ $value['quantity'] * $value['price']
+                                    }} </div>
                             </td>
 
                             <td class="px-6 whitespace-nowrap text-right text-sm font-medium">
@@ -122,4 +123,5 @@
         </div>
     </div>
 </div>
+
 @endsection
